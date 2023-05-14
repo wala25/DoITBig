@@ -1,0 +1,63 @@
+$primary:black;
+$secondery:#424242;
+$highlight:#C92139;
+$inputFields:rgb(105, 105, 105);
+
+section{
+    position: relative;
+    top: 30px;
+    width: 90%;
+    background: $primary;
+    color: white;
+    border-radius: 20px;
+    margin: auto;
+    padding: 20px 0px;
+    word-break: break-all;
+}
+.sender{
+    text-align: center;
+}
+.message{
+    background:$secondery ;
+    //line-height: 30px;
+
+    border-radius: 10px;
+    text-align: justify;
+    p{
+        padding: 10px;
+    }
+}
+.reply, .message{
+    width: 80%;
+    margin:20px auto;
+}
+textarea{
+    background: $inputFields;
+    width: 100%;
+    margin: auto;
+    color: white;
+    outline: unset;
+    border: unset;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    resize: none;
+}
+
+textarea::placeholder{
+    color: rgb(201, 201, 201);
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+button{
+    position: relative;
+    display: block;
+    padding: 15px 50px;
+    margin:20px auto;
+    border: white solid 2px;
+    background: $primary;
+    border-radius: 30px;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+}

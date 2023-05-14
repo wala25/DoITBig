@@ -1,0 +1,14 @@
+<section class="contactUs">
+    <form [formGroup]="login">
+        <div class="login">
+            <input type="text" formControlName='username' placeholder="Username" maxlength="50">
+            <input type="password" formControlName='password' placeholder="Password"  maxlength="50">
+        </div>
+        <div class="notification">
+            {{notif}}
+        </div>
+        <div class="button">
+            <button type="button" (click)="submit()">Submit</button>
+        </div>
+    </form>
+</section>

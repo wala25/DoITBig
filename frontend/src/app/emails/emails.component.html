@@ -1,0 +1,13 @@
+<section>
+    <div class="email" *ngFor="let e of emails">
+        <div class="img">
+            <img [src]="'assets/'+e.avatar" alt="email">
+        </div>
+        <div class="text">
+            <h3>
+                <a [routerLink]="'/emails/'+e.id">{{e.email}}</a>
+            </h3>
+            <p>{{e.message}}</p>
+        </div>
+    </div>
+</section>

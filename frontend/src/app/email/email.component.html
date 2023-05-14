@@ -1,0 +1,14 @@
+<section>
+    <div class="sender">
+        <h3>Sender: {{email.email}}</h3>
+    </div>
+    <div class="message">
+        <p>
+            {{email.message}}
+        </p>
+    </div>
+    <div class="reply" *ngIf="email.reply">
+        <textarea name="message" rows="10"></textarea>
+        <button>Submit</button>
+    </div>
+</section>
