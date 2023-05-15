@@ -8,7 +8,7 @@ export class AuthGuardsService implements CanActivate {
 
   constructor(private router: Router) { }
 
-  id=1
+  id=null
   canActivate(){
     if(this.id){
       return true
