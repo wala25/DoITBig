@@ -18,8 +18,11 @@ export class LoginService {
         next:(res:any)=>{
           this.authGuardService.id=res.id
           this.router.navigate(['emails'])
-          console.log(res)},
-        error:(e)=>{console.log(e)}
+          console.log(this.authGuardService.id)},
+        error:(e)=>{
+          reject(e.error.message)
+          console.log(e)
+        }
       })
     })
   }

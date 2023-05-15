@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { EmailsService } from '../services/emails.service';
+import { AuthGuardsService } from '../services/auth-guards.service';
 
 @Component({
   selector: 'app-emails',
@@ -7,21 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmailsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private emailsService:EmailsService,private authGuardService:AuthGuardsService) { }
 
-  emails=[
-    {id:'fdsfd',avatar:'email.png',email:'zifzfkzpofpzef',message:'grthtrhtrhtrhtrh'},
-    {id:'fdsfd',avatar:'email.png',email:'zifzfkzpofpzef',message:'grthtrhtrhtrhtrh'},
-    {id:'fdsfd',avatar:'email.png',email:'zifzfkzpofpzef',message:'grthtrhtrhtrhtrh'},
-    {id:'fdsfd',avatar:'email.png',email:'zifzfkzpofpzef',message:'grthtrhtrhtrhtrh'},
-    {id:'fdsfd',avatar:'email.png',email:'zifzfkzpofpzef',message:'grthtrhtrhtrhtrh'},
-    {id:'fdsfd',avatar:'email.png',email:'zifzfkzpofpzef',message:'grthtrhtrhtrhtrh'},
-    {id:'fdsfd',avatar:'email.png',email:'zifzfkzpofpzef',message:'grthtrhtrhtrhtrh'},
-    {id:'fdsfd',avatar:'email.png',email:'zifzfkzpofpzef',message:'grthtrhtrhtrhtrh'},
-    {id:'fdsfd',avatar:'email.png',email:'zifzfkzpofpzef',message:'grthtrhtrhtrhtrh'},
-    {id:'fdsfd',avatar:'email.png',email:'zifzfkzpofpzef',message:'grthtrhtrhtrhtrh'},
-  ]
+  emails=new Array()
   ngOnInit(): void {
+    this.emailsService.getAllEmails(this.authGuardService.id)
+      .then((r:any)=>{
+        this.emails=r
+      })
   }
 
 }

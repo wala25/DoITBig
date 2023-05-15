@@ -1,4 +1,4 @@
-<section>
+<section *ngIf="email">
     <div class="sender">
         <h3>Sender: {{email.email}}</h3>
     </div>
@@ -7,8 +7,14 @@
             {{email.message}}
         </p>
     </div>
-    <div class="reply" *ngIf="email.reply">
-        <textarea name="message" rows="10"></textarea>
-        <button>Submit</button>
+    <div class="message" *ngIf="email.response">
+        <p>
+            {{email.response}}
+        </p>
     </div>
+    <div class="reply" *ngIf="!email.response">
+        <textarea [formControl]="message" name="message" rows="10"></textarea>
+        <button (click)="!loading&&submit()">Submit</button>
+    </div>  
 </section>
+<h1>{{error}}</h1>

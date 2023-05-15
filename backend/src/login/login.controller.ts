@@ -1,18 +1,23 @@
-import { Controller, Post, Req,Get } from '@nestjs/common';
+import { Controller, Post, Req,Get, HttpException,HttpStatus } from '@nestjs/common';
+import { users } from './users.database';
 
 @Controller('api/login')
 export class LoginController {
 
+   users=users
+
     @Post()
     login(@Req() req){
-        console.log('called')
-        console.log(req.body)
-        return {id:'done'}
-    }
-    @Get()
-    loginl(){
-        console.log('called')
-        
+        let user=req.body;
+        for (let u of this.users){
+            if(user.username===u.username){
+                if (user.password===u.password) return {id:u.id}
+                else{
+                    throw new HttpException('Wrong password',HttpStatus.UNAUTHORIZED)
+                }
+            }
+        }
+        throw new HttpException("This user dosen't existe",HttpStatus.UNAUTHORIZED)
     }
     
 }

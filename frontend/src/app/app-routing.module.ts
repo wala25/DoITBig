@@ -6,10 +6,11 @@ import { EmailComponent } from './email/email.component';
 import { AuthGuardsService } from './services/auth-guards.service';
 
 const routes: Routes = [
-  {path:'',component:LoginComponent},
+  {path:'',redirectTo:'emails',pathMatch:'full'},
   {path:'emails',component:EmailsComponent,canActivate:[AuthGuardsService]},
+  {path:'emails/:id',component:EmailComponent,canActivate:[AuthGuardsService]},
   {path:'login',component:LoginComponent},
-  {path:'emails/:id',component:EmailComponent}
+  {path:'**',redirectTo:'emails'}
 ];
 
 @NgModule({
