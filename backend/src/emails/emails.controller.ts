@@ -1,4 +1,4 @@
-import { Controller, Get,Post,Req, Param,HttpException, HttpStatus } from '@nestjs/common';
+import { Controller, Get,Post,Req, Param,HttpException, HttpStatus, Res } from '@nestjs/common';
 import { allEmails } from './emails.database';
 import { EmailsService } from './emails.service';
 
@@ -8,8 +8,8 @@ export class EmailsController {
     allEmails=allEmails
 
     @Get(':userId')
-    getAllEmails(@Param() params ){
-        
+    getAllEmails(@Param() params, @Req() req){
+        console.log(req.cookies)
         let id=Number(params.userId)
         for (let e of this.allEmails){
             if(e.usrId===id){

@@ -11,7 +11,7 @@ export class EmailsService {
   apiAdress=environment.Api
   getAllEmails(id:any){
     return new Promise((resolve,reject)=>{
-      this.http.get(this.apiAdress+'emails/'+id).subscribe({
+      this.http.get(this.apiAdress+'emails/'+id,{withCredentials:true}).subscribe({
         next:(res)=>{
           resolve(res)
         },

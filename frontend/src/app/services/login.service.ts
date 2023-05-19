@@ -14,7 +14,7 @@ export class LoginService {
   apiAdress=environment.Api
   login(usr:any){
     return new Promise((resolve,reject)=>{
-      this.http.post(this.apiAdress+'login',usr).subscribe({
+      this.http.post(this.apiAdress+'login',usr,{withCredentials:true}).subscribe({
         next:(res:any)=>{
           this.authGuardService.id=res.id
           this.router.navigate(['emails'])
